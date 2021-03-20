@@ -347,42 +347,4 @@ img{
         transform: scale(2);
         z-index: 4;
     }
-      /* *
-      {
-         height: 100em;
-
-      } */
-  /*  .music-player {
-        width: 50em;
-        height: 90em;
-    }
-    .music-list{
-        width: 50em;
-        height: 100em;
-    }
-    .poster::after {
-        width: 30em;
-        height: 80em;
-    }
-    .poster img.music-poster{
-        width: 50em;
-        height: 70em; 
-    }
-    .poster{
-        width: 36em;
-        height: 76em; 
-    }
-    .music-poster-box{
-        width: 50em;
-        height: 27em;
-    }
-    .music-poster-box-container{
-        width: 50em;
-        height: 30em;
-    } */
-    /* .music-poster-box.current{
-        width: 20em;
-        height: 25em;
-    } */
 }
-
