@@ -3,26 +3,26 @@ const music = [
     {
         musicName : "Mood",
         artistName : "24kGoldn",
-        musicSrc : "http://mp3.vlcmusic.com/mp3/org/31100.mp3",
-        musicPoster : "https://mp3.vlcmusic.com/tiny_image/timthumb.php?q=100&w=500&src=images/31100.png"
+        musicSrc : "https://pagalworldsongs.me/dl/download.php?id=72720&kbps=320kbps",
+        musicPoster : "https://pagalworldsongs.me/images/mood-72720.jpg"
     },
+    // {
+    //     musicName : "Say my name",
+    //     artistName : "Kr$na",
+    //     musicSrc : "http://mp3.vlcmusic.com/mp3/org/32328.mp3",
+    //     musicPoster : "https://mp3.vlcmusic.com/tiny_image/timthumb.php?q=100&w=250&src=images/32328.png"
+    // },
+    // {
+    //     musicName : "Maakasam",
+    //     artistName : "Kr$na",
+    //     musicSrc : "http://mp3.vlcmusic.com/mp3/org/26564.mp3",
+    //     musicPoster : "https://mp3.vlcmusic.com/tiny_image/timthumb.php?q=100&w=250&src=images/26564.png"
+    // },
     {
-        musicName : "Say my name",
-        artistName : "Kr$na",
-        musicSrc : "http://mp3.vlcmusic.com/mp3/org/32328.mp3",
-        musicPoster : "https://mp3.vlcmusic.com/tiny_image/timthumb.php?q=100&w=250&src=images/32328.png"
-    },
-    {
-        musicName : "Maakasam",
-        artistName : "Kr$na",
-        musicSrc : "http://mp3.vlcmusic.com/mp3/org/26564.mp3",
-        musicPoster : "https://mp3.vlcmusic.com/tiny_image/timthumb.php?q=100&w=250&src=images/26564.png"
-    },
-    {
-        musicName : "Get Down",
-        artistName : "Raftaar x Fortnite",
-        musicSrc : "http://mp3.vlcmusic.com/mp3/org/34737.mp3",
-        musicPoster : "https://i.ytimg.com/vi/jTLhQf5KJSc/maxresdefault.jpg"
+        musicName : "Saath ya khilaaf",
+        artistName : "Raftaar x Kr$na",
+        musicSrc : "https://pagalworldsongs.me/dl/download.php?id=72731&kbps=320kbps",
+        musicPoster : "https://pagalworldsongs.me/images/saath-ya-khilaaf-72731.jpg"
     }
     ,{
         musicName : "Tu Phir Se Aana",
@@ -92,6 +92,7 @@ function currentMusic(index){
     musicPoster.alt = music[index].musicName;
     let list = document.querySelector(".list");
     list.innerHTML="";
+
     music.forEach((item,index)=>{
         let musicPosterBox = document.createElement("img");
         musicPosterBox.classList.add("music-poster-box");
@@ -152,7 +153,7 @@ currentMusic(musicIndex);
 
 function playMusic(){
     isPlaying=true;
-    audio.play();
+    audio.play();//using javascript functions
     playBtn.classList.replace("fa-play-circle","fa-pause-circle-o");
 }
 
@@ -162,7 +163,7 @@ function pauseMusic(){
     playBtn.classList.replace("fa-pause-circle-o","fa-play-circle");
 }
 
-// music time
+// music time ..song bar-----------------------------------------------
 const current = document.querySelector("#music-current");
 const duration = document.querySelector("#music-duration");
 if(duration.innerText=="NaN:0NaN"){
@@ -186,8 +187,8 @@ audio.addEventListener("timeupdate",()=>{
         current.innerText=minutes+":0"+seconds;
     }
 
-    //duration time
-    time = audio.duration;
+    //duration time=----------------------------
+    time = audio.duration;//we are using duration function of audio to get full audio time
     seconds = Math.floor(time%60);
     minutes = Math.floor(time/60);
     if(minutes<10 &&  seconds<10 ){
@@ -206,7 +207,7 @@ audio.addEventListener("timeupdate",()=>{
         duration.innerText="00:00";
     }
 
-    // time bar
+    // time bar------------------------------------
     const timebarCicle = document.querySelector(".timebar-circle");
     const timebar = document.querySelector(".timebar");
     
@@ -221,7 +222,7 @@ audio.addEventListener("timeupdate",()=>{
     }
 
 });
-
+//clicking any part in soundar--------------
 const musicTimebar = document.querySelector(".music-timebar");
 musicTimebar.addEventListener("click",(e)=>{
     let a = e.offsetX;
@@ -233,7 +234,7 @@ musicTimebar.addEventListener("click",(e)=>{
 
 
 
-//music list open
+//music list open-----------------
 const menuBtn = document.querySelector(".menu-btn");
 const musicList = document.querySelector(".music-list");
 const closeBtn = document.querySelector(".close-btn");
@@ -250,24 +251,24 @@ closeBtn.addEventListener("click",()=>{
 
 // swap left right 
 
-const playerCenter = document.querySelector(".poster");
-let manager = new Hammer.Manager(playerCenter);
+// const playerCenter = document.querySelector(".poster");
+// let manager = new Hammer.Manager(playerCenter);
 
-// Create a recognizer
-let Swipe = new Hammer.Swipe();
+// // Create a recognizer
+// let Swipe = new Hammer.Swipe();
 
-manager.add(Swipe);
+// manager.add(Swipe);
 
-manager.on('swipe', function (e) {
-    let direction = e.offsetDirection;
-    if (direction == 4) {
-        musicIndex = musicIndex - 1;
-        currentMusic(musicIndex);
-        playMusic();
-    }
-    else if (direction == 2){
-        musicIndex = musicIndex + 1;
-        currentMusic(musicIndex);
-        playMusic();
-    }
-});
+// manager.on('swipe', function (e) {
+//     let direction = e.offsetDirection;
+//     if (direction == 4) {
+//         musicIndex = musicIndex - 1;
+//         currentMusic(musicIndex);
+//         playMusic();
+//     }
+//     else if (direction == 2){
+//         musicIndex = musicIndex + 1;
+//         currentMusic(musicIndex);
+//         playMusic();
+//     }
+// });
